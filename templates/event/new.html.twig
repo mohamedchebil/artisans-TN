@@ -1,0 +1,21 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}New Event{% endblock %}
+
+{% block body %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Edit Event </h6>
+                </div>
+
+    {{ include('event/_form.html.twig') }}
+
+    <a href="{{ path('app_event_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

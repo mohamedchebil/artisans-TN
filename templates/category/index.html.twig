@@ -1,0 +1,67 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid py-4">
+       <button class="btn btn-primary"> <a href="{{ path('app_category_new') }}">Add Category</a> </button>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Category table</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if categories is not empty %}
+
+                                    {% for category in categories %}
+
+                                        <tr>
+                                            <td>
+
+                                                        <h6 class="mb-0 text-sm text-center">{{ category.id }}</h6>
+
+
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0 text-sm text-center">{{ category.nom }}</h6>
+
+                                            </td>
+                                            <td class="align-middle mb-0 text-sm text-center">
+                                                <button class="btn ">
+                                                    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit  </a> </button> </td>
+
+
+                                            <td class="align-middle mb-0 text-sm text-center">
+                                                {{ include('category/_delete_form.html.twig') }}
+
+                                            </td>
+
+
+
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>No Category found.</p>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

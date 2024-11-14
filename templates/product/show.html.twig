@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+<section class="shop section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="account-sidebar">
+                    <div class="sidebar-list">
+                        <a href="dashboard.html" ><i class="far fa-th-large"></i> Dashboard</a>
+                        <a href="product.html"><i class="far fa-layer-group active"></i> Products <span>20</span></a>
+                        <a href="add-product.html"><i class="far fa-upload "></i> Add New Product</a>
+                        <a href="all-order.html"><i class="far fa-shopping-bag"></i> All Orders <span>2</span></a>
+                        <a href="vendor-profile.html"><i class="far fa-cog"></i> Account Settings</a>
+                        <a href="#"><i class="far fa-lock"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="account-content bg-white pt-0">
+                    <h4 class="account-content-title"><i class="far fa-layer-group"></i>Product Details</h4>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ product.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ product.prix }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ product.Category.nom }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if product.image %}
+                        <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="Product Image" width="450" height="450">
+                    {% else %}
+                        No Image Available
+                    {% endif %}
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+                </div>
+                <a href="{{ path('app_product_index') }}">back to list</a>
+
+
+                {{ include('product/_delete_form.html.twig') }}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    x
+{% endblock %}

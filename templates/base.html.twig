@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/themify-icons.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/niceselect.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/flex-slider.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/default.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+
+
+        <script data-cfasync="false" src="{{ asset('../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/slicknav.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+
+        <script src="{{ asset('assets/js/magnific-popup.js') }}"></script>
+
+        <script src="{{ asset('assets/js/facnybox.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/finalcountdown.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/nicesellect.js') }}"></script>
+
+        <script src="{{ asset('assets/js/ytplayer.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/flex-slider.js') }}"></script>
+
+        <script src="{{ asset('assets/js/scrollup.js') }}"></script>
+
+        <script src="{{ asset('assets/js/onepage-nav.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/easing.js') }}"></script>
+
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+
+{% block header %}
+    <header class="header shop">
+
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12">
+
+                        <div class="top-left">
+                            <ul class="list-main">
+                                <li><i class="ti-headphone-alt"></i> +070 (460) 532-654</li>
+                                <li><i class="ti-email"></i> <a href="https://themes.themewild.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="42313732322d303602273a232f322e276c212d2f">[email&#160;protected]</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+
+                        <div class="right-content">
+                            <ul class="list-main">
+                                <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
+                                {% if app.user  %}
+
+                                    <li><i class="ti-user"></i> <a href="#">{{ app.user.nom }}</a></li>
+
+
+                                    <li><i class="ti-power-off"></i><a href={{ path('app_logout') }}>logout</a></li>
+                                {% endif  %}
+
+                                <li>
+                                    <div class="dropdown top-dropdown">
+                                        <a href="#" id="lang" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="ti-world"></i> EN <i class="fal fa-angle-down"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="lang">
+                                            <a class="dropdown-item" href="#"><i class="ti-world"></i> EN</a>
+                                            <a class="dropdown-item" href="#"><i class="ti-world"></i> RU</a>
+                                            <a class="dropdown-item" href="#"><i class="ti-world"></i> GE</a>
+                                            <a class="dropdown-item" href="#"><i class="ti-world"></i> HK</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown top-dropdown">
+                                        <a href="#" id="payment" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fal fa-dollar-sign"></i> USD <i class="fal fa-angle-down"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="payment">
+                                            <a class="dropdown-item" href="#"><i class="fal fa-dollar-sign"></i> USD</a>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-euro-sign"></i> EUR</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="middle-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+
+                        <div class="logo">
+                            <a href="index.html"><img src="/assets/img/logo.png" alt="logo"></a>
+                        </div>
+
+
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="far fa-search"></i></a></div>
+
+                            <div class="search-top">
+                                <form class="search-form">
+                                    <input type="text" placeholder="Search here..." name="search">
+                                    <button value="search" type="submit"><i class="far fa-search"></i></button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="mobile-nav"></div>
+                    </div>
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                                <select>
+                                    <option selected="selected">All Category</option>
+                                    <option>Fashion</option>
+                                    <option>Electronics</option>
+                                    <option>Bikes</option>
+                                    <option>Laptop</option>
+                                    <option>Camera</option>
+                                    <option>Health & Beauty</option>
+                                </select>
+                                <form>
+                                    <input name="search" placeholder="Search Products Here....." type="search">
+                                    <button class="btnn"><i class="far fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-12">
+                        <div class="right-bar">
+
+                            <div class="sinlge-bar">
+                                <a href="#" class="single-icon"><i class="fal fa-heart" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="sinlge-bar">
+                                <a href="#" class="single-icon"><i class="fal fa-user-circle" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="sinlge-bar shopping">
+                                <a href="#" class="single-icon"><i class="fal fa-shopping-cart"></i> <span class="total-count">2</span></a>
+
+                                <div class="shopping-item">
+                                    <div class="dropdown-cart-header">
+                                        <span>2 Items</span>
+                                        <a href="#">View Cart</a>
+                                    </div>
+                                    <ul class="shopping-list">
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
+                                            <a class="cart-img" href="#"><img src="assets/img/products/p22.png" alt="#"></a>
+                                            <h4><a href="#">Xamaha R15 Blue</a></h4>
+                                            <p class="quantity">1x - <span class="amount">$200.00</span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
+                                            <a class="cart-img" href="#"><img src="assets/img/products/p3.png" alt="#"></a>
+                                            <h4><a href="#">Apple Earphones</a></h4>
+                                            <p class="quantity">1x - <span class="amount">$150.00</span></p>
+                                        </li>
+                                    </ul>
+                                    <div class="bottom">
+                                        <div class="total">
+                                            <span>Total</span>
+                                            <span class="total-amount">$350.00</span>
+                                        </div>
+                                        <a href="checkout.html" class="btn animate">Checkout</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+
+    </header>
+
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+
+        <div class="footer-top section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-12">
+
+                        <div class="single-footer about">
+                            <div class="logo">
+                                <a href="index.html"><img width="250" src="/assets/img/logo-white.png" alt="#"></a>
+                            </div>
+                            <p class="text">We are many variations of passages available but the majority have suffered alteration in some form by the andomised words which injected humour.</p>
+                            <p class="call">Have Any Question? Call Us 24/7<span><a href="tel:(+1)1234565555">(+1) 123 456 5555</a></span></p>
+                            <div class="footer-download">
+                                <a href="#">
+                                    <img src="assets/img/download/play-store.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/img/download/app-store.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+
+                        <div class="single-footer links">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Faq</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Our Stores</a></li>
+                                <li><a href="#">Our Cares</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+
+                        <div class="single-footer links">
+                            <h4>Customer Service</h4>
+                            <ul>
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Money-back</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Support Center</a></li>
+                                <li><a href="#">How to Buy</a></li>
+                                <li><a href="#">Track Your Order</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <div class="single-footer social">
+                            <h4>Get In Tuch</h4>
+
+                            <div class="contact">
+                                <ul>
+                                    <li> <i class="fal fa-map-marker-alt"></i> 1503 Kovar Road, New York, USA</li>
+                                    <li> <i class="fal fa-envelope"></i> <a href="https://themes.themewild.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7102101d1402311409101c011d145f121e1c">[email&#160;protected]</a></li>
+                                    <li> <i class="fal fa-phone"></i> (+1) 123 456 5657</li>
+                                </ul>
+                            </div>
+
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="left">
+                                <p>Copyright © 2021 <a href="#">SMARTSHOP</a> - All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="right payment">
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-discover"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin index{% endblock %}
+
+{% block body %}
+    <h1>Admin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Password</th>
+                <th>Telephone</th>
+                <th>IsVerified</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.nom }}</td>
+                <td>{{ admin.prenom }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.adresse }}</td>
+                <td>{{ admin.password }}</td>
+                <td>{{ admin.telephone }}</td>
+                <td>{{ admin.isVerified ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_show', {'id': admin.id}) }}">show</a>
+                    <a href="{{ path('app_admin_edit', {'id': admin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_new') }}">Create new</a>
+{% endblock %}

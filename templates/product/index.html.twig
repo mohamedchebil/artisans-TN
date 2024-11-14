@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+
+
+
+
+<section class="shop section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="account-sidebar">
+                    <div class="sidebar-list">
+                        <a href="dashboard.html" ><i class="far fa-th-large"></i> Dashboard</a>
+                        <a href="product.html"><i class="far fa-layer-group active"></i> Products <span>20</span></a>
+                        <a href="add-product.html"><i class="far fa-upload"></i> Add New Product</a>
+                        <a href="all-order.html"><i class="far fa-shopping-bag"></i> All Orders <span>2</span></a>
+                        <a href="vendor-profile.html"><i class="far fa-cog"></i> Account Settings</a>
+                        <a href="#"><i class="far fa-lock"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <a href="{{ path('app_product_new') }}" class="content-action "><i class="fa fa-upload extraClass" aria-hidden="true"></i><span> Create New </span></a>
+
+                <div class="account-content">
+                    <h4 class="account-content-title"><i class="far fa-map-marker-alt"></i> Products</h4>
+                    <div class="account-content-table">
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                                {% for product in products %}
+                                <tr class="account-order-list">
+                                    <td><div class="product-info">{{ product.id }}</div></td>
+                                    <td><div class="product-info">{{ product.nom }}</div></td>
+                                    <td><div class="product-info">${{ product.prix }}</div></td>
+                                    <td><div class="product-info">{{ product.description }}</div></td>
+
+                                    <td>
+                                        <div class="product-info">
+                                            <a href="{{ path('app_product_edit', {'id': product.id}) }}" class="content-action content-action-mr"><i class="far fa-pen"></i></a>
+                                            <a href="{{ path('app_product_show', {'id': product.id}) }}"  class="content-action"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                            <a href="{{ path('export_product_pdf', {'productId': product.id}) }}" class="btn btn-primary">Export to PDF</a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                {% endfor %}
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

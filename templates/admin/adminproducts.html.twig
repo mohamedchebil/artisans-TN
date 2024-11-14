@@ -1,0 +1,78 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Product Table{% endblock %}
+
+{% block body %}
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Products table</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prix</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
+
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if products is not empty %}
+
+                                    {% for product in products %}
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ product.nom }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0 text-sm">{{ product.Category.nom }}</h6>
+
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <h6 class="mb-0 text-sm">{{ product.description }}</h6>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <h6 class="mb-0 text-sm">{{ product.prix }}</h6>                                </td>
+
+                                            <td class="align-middle text-center text-sm">
+                                                {% if product.image %}
+                                                    <img class="avatar avatar-sm me-3" src="{{ asset('uploads/images/' ~ product.image) }}" alt="Product Image" width="450" height="450">
+                                                {% else %}
+                                                    No Image Available
+                                                {% endif %}
+                                            </td>
+                                            <td class="align-middle">
+
+                                                {{ include('admin/delete_product.html.twig') }}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>No Products found.</p>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

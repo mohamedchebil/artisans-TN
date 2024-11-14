@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <section class="hero-slider bg-grey">
+        <div class="container">
+            <div class="main-hero-slider  owl-theme">
+
+
+
+
+
+
+
+                <div class="item">
+                    <div class="single-slider item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-8 offset-lg-3 my-auto">
+                                <div class="text-inner">
+                                    <div class="hero-text">
+                                        <h1><span>UP TO 50% OFF </span>For Your First Buy</h1>
+                                        <p>There are many variations of passages of lorem ipsum <br> available but the majority have suffered alteration in <br> some form by injected humour.</p>
+                                        <div class="button">
+                                            <a href="#" class="btn">Shop Now!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 my-auto">
+                                <img src="/assets/img/slider/slider.png" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>Total number of products: {{ productCount }}</p>
+    <div class="product-area section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-5">
+                    <div class="product-brand">
+                        <h5>Categories</h5>
+                        <div class="brand-list">
+                            {% for category in categories %}
+                            <a href="#"> <i class="flaticon-mozy"></i> {{ category.nom }}</a>
+                            {% endfor %}
+                        </div>
+                        <a href="#" class="show-brand-btn">View All Brands <i class="far fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title d-flex justify-content-between align-center">
+                                <div class="d-flex section-title-left">
+                                    <i class="flaticon-list-text"></i>
+                                    <h2>All Products</h2>
+                                </div>
+                                <div class="section-title-right">
+                                    <a href="#">View More <i class="far fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+
+
+
+
+
+
+
+                        {% for product in products %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="single-product">
+
+                                <div class="product-img">
+                                    <a href="shop-single.html">
+                                        <img class="product-img" src="{{ asset('uploads/images/' ~ product.image) }}" alt="#" >
+                                    </a>
+                                    <div class="button-head">
+                                        <div class="product-action">
+                                            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="far fa-eye"></i><span>Quick Shop</span></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+
+                                    <h3><a href="#">{{ product.nom }}</a></h3>
+                                    <div class="product-rate">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="product-price">
+
+                                            <span>${{ product.prix }}</span>
+                                        </div>
+                                        <button class="product-cart-btn" type="button"><i class="fal fa-shopping-cart"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cown-down">
+        <div class="section-inner">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 col-12">
+                        <div class="image">
+                            <img src="/assets/img/deal.jpg" alt="#">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="content">
+                            <div class="heading-block">
+                                <p class="small-title">Todays Deal</p>
+                                <h3 class="title">Sweater New Trending 2021</h3>
+                                <p class="text">There are many variations of passages of lorem ipsum available but the majority have suffered alteration in some form.</p>
+                                <h1 class="price">$1000 <s>$1500</s></h1>
+                                <div class="coming-time">
+                                    <div class="clearfix" data-countdown="2024/12/30"></div>
+                                </div>
+                                <div class="mt-5">
+                                    <a href="#" class="count-buy-btn">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section class="shop-services section home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+
+                    <div class="single-service">
+                        <i class="fal fa-truck"></i>
+                        <h4>Free Delivery</h4>
+                        <p>Orders over $150</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+
+                    <div class="single-service">
+                        <i class="fal fa-sync"></i>
+                        <h4>Get Refund</h4>
+                        <p>Within 30 days returns</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+
+                    <div class="single-service">
+                        <i class="fal fa-lock"></i>
+                        <h4>Safe Payment</h4>
+                        <p>100% secure payment</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+
+                    <div class="single-service">
+                        <i class="fal fa-headset"></i>
+                        <h4>24/7 Support</h4>
+                        <p>Feel Free To Call us</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Client table</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Prenome</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Adress</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Telephone</th>
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if clients is not empty %}
+
+                                    {% for client in clients %}
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ client.nom }}</h6>
+                                                        <p class="text-xs text-secondary mb-0">{{ client.email }}</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0 text-sm">{{ client.prenom }}</h6>
+
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <h6 class="mb-0 text-sm">{{ client.adresse }}</h6>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <h6 class="mb-0 text-sm">{{ client.telephone }}</h6>                                </td>
+                                            <td class="align-middle">
+                                                {{ include('client/_delete_form.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>No client found.</p>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block body %}
+    <section class="shop section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="account-sidebar">
+                        <div class="sidebar-list">
+                            <a href="dashboard.html" ><i class="far fa-th-large"></i> Dashboard</a>
+                            <a href="product.html"><i class="far fa-layer-group"></i> Products <span>20</span></a>
+                            <a href="add-product.html"><i class="far fa-upload active"></i> Add New Product</a>
+                            <a href="all-order.html"><i class="far fa-shopping-bag"></i> All Orders <span>2</span></a>
+                            <a href="vendor-profile.html"><i class="far fa-cog"></i> Account Settings</a>
+                            <a href="#"><i class="far fa-lock"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="account-content bg-white pt-0">
+                        <h4 class="account-content-title"><i class="far fa-layer-group"></i> Add Product</h4>
+                        <div class="edit-profile">
+
+                                {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Name</label>
+                                            {{ form_widget(form.nom,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(form.nom,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">Category</label>
+                                            {{ form_widget(form.category,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(form.category,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Price</label>
+                                            {{ form_widget(form.prix,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(form.prix,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.image, {'attr': {'class': 'text-danger'}}) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            {{ form_widget(form.description,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(form.description,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn">{{ button_label|default('Save') }}</button>
+                                {{ form_end(form) }}
+                        </div>
+                    </div>
+                    <a href="{{ path('app_product_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+{% endblock %}
