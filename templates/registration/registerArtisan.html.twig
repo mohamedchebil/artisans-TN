@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+
+
+
+
+    <div class="bg-gradient-primary">
+        <div class="container">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block"></div>
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Créez un compte Artisan !</h1>
+                                </div>
+                                {{ form_start(registrationArtisanForm,{'attr':{'novalidate':'novalidate'}} ) }}
+                                <div class="user">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label>Nom</label>
+                                            {{ form_widget(registrationArtisanForm.nom,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(registrationArtisanForm.nom,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Prénom</label>
+                                            {{ form_widget(registrationArtisanForm.prenom,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(registrationArtisanForm.prenom,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        {{ form_widget(registrationArtisanForm.email,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationArtisanForm.email,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        {{ form_widget(registrationArtisanForm.plainPassword,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationArtisanForm.plainPassword,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        {{ form_widget(registrationArtisanForm.adresse,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationArtisanForm.adresse,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Numéro de téléphone</label>
+                                        {{ form_widget(registrationArtisanForm.telephone,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationArtisanForm.telephone,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        {{ form_widget(registrationArtisanForm.RGPDConsent) }}
+                                        <label>Accepter les termes et conditions</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">S'inscrire</button>
+
+                                </div>
+                                {{ form_end(registrationArtisanForm) }}
+                                <hr>
+
+                                <div class="text-center">
+                                    <a class="small" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="{{ path('app_login') }}">Vous avez déjà un compte? Connexion!</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

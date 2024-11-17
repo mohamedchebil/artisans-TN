@@ -1,0 +1,10 @@
+<div class="container-fluid py-4">
+
+{{ form_start(form) }}
+<div>
+    {{ form_widget(form) }}
+    <br>
+</div>
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>

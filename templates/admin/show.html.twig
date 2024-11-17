@@ -1,0 +1,42 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <h1>Admin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ admin.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ admin.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin.email }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ admin.adresse }}</td>
+            </tr>
+
+            <tr>
+                <th>Telephone</th>
+                <td>{{ admin.telephone }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('app_admin_edit', {'id': admin.id}) }}">edit</a>
+
+{% endblock %}

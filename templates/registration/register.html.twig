@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+
+
+
+
+    <div class="bg-gradient-primary">
+        <div class="container">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block"></div>
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Créez un compte Client !</h1>
+                                </div>
+                                {{ form_start(registrationForm,{'attr':{'novalidate':'novalidate'}} ) }}
+                                <div class="user">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label>Nom</label>
+                                            {{ form_widget(registrationForm.nom,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(registrationForm.nom,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Prénom</label>
+                                            {{ form_widget(registrationForm.prenom,{'attr':{'class':'form-control form-control-user'}}) }}
+                                            {{ form_errors(registrationForm.prenom,{'attr':{'class':'text-danger'}}) }}
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        {{ form_widget(registrationForm.email,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationForm.email,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        {{ form_widget(registrationForm.plainPassword,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationForm.plainPassword,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        {{ form_widget(registrationForm.adresse,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationForm.adresse,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Numéro de téléphone</label>
+                                        {{ form_widget(registrationForm.telephone,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationForm.telephone,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Genre</label>
+                                        {{ form_widget(registrationForm.genre,{'attr':{'class':'form-control form-control-user'}}) }}
+                                        {{ form_errors(registrationForm.genre,{'attr':{'class':'text-danger'}}) }}
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        {{ form_widget(registrationForm.RGPDConsent) }}
+                                        <label>Accepter les termes et conditions</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">S'inscrire</button>
+
+                                </div>
+                                {{ form_end(registrationForm) }}
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="{{ path('app_login') }}">Vous avez déjà un compte? Connexion!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

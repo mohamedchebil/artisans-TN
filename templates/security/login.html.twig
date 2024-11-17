@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+    <div class="table">
+        <div class="table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-12">
+
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                           {% if app.user %}
+                               <div class="mb-3">
+                                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                </div>
+                           {% else %}
+
+
+
+                            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                            <label for="inputEmail">Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                            <div class="text-center">
+                            <button class="btn btn-lg btn-primary" type="submit">
+                                Sign in
+                            </button>
+                            </div>
+
+                            <br>
+
+
+                            <div class="text-center">
+                                <a class="small lien-agrandi" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+                            </div>
+
+                            <style>
+                                /* Vous pouvez ajuster la taille de la police selon vos besoins */
+                                .lien-agrandi {
+                                    font-size: 18px; /* Taille de la police en pixels */
+                                }
+                            </style>
+
+                            <!-- En utilisant une classe CSS pour le lien -->
+                            <div class="text-center">
+                                <a class="small lien-agrandi" href="{{ path('app_register_client') }}">S'inscrire en tant que client</a>
+                            </div>
+
+
+
+                            <div class="text-center">
+                                <a class="small lien-agrandi" href="{{ path('app_register_artisan') }}">S'inscrire en tant qu'artisan</a>
+                            </div>
+
+
+                        </form>
+
+                        {% endif %}
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
